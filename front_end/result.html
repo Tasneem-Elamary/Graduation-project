@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Retino-AI</title>
+    
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Poppins:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/photoviewer.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/repo.css">
+        <link rel="stylesheet" href="css/info.css">
+        <link rel="stylesheet" href="css/result.css">
+    </head>
+<body>
+
+    <div class="navbar-box text-dark">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <!-- <img src="Img/ceph_con.png" class="icon" /> -->
+              <!-- <a class="navbar-brand me-4" href="index.html"> -->
+                
+                <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+                
+              
+            
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                  <i class="fas fa-bars"></i>
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 header-list">
+                  <li class="nav-item">
+                    <a class="nav-link" href="info.html">Fundus Image Analysis</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="earth.html">Technology</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Interactive Guide</a>
+                  </li>
+        
+                  <li class="nav-item">
+                    <a class="nav-link" href="repo.html">Repository</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                  </li>
+        
+                </ul>
+                <ul class="navbar-nav d-flex ms-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Login</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Sign Up</a>
+                  </li>
+                </ul>
+        
+              </div>
+        
+              
+        
+              
+            </div>
+          </nav>
+        </div>
+    </div>
+    
+    <div class="info">
+        <div class="container">
+            <div id="content">
+            
+            
+                <div class="">
+    
+                    <div class="row m-auto hello-div mt-5 constant_div add_docs">
+                        <div class="ms-5">
+                            <div class=" pt-3 col-lg-7 start_new_analysis">
+                                <h3 class="font-7 add-pro hey-text py-2">Hello Doctor<span class="ps-1" id="userName"></span><span>,</span></h3>
+                                <p class="hey-text">Here is the profile of your patient.</p>
+                                <button class="">Start New Analysis</button>
+                                <button class="">Save Patient Report</button>
+                            </div>
+                        </div>
+                      </div>
+            
+                      <div class="row form-box-patient p-5">
+                        <div class="col-md-12">
+                            <div class="widget-area-2 proclinic-box-shadow">
+                                <form>
+                                    <h3 class="py-2 mb-2">Patient Info</h3>
+                                    <div class="row">
+                                       <div id='result_container'>
+                                        <!-- <div class="form-group col-md-6">                                       
+                                            <div class="row">
+                                                <label for="patient-name" class="col-4">Patient Name</label>
+                                                <div class="col-8">Maryam Mahmoud Muhammed Elsayed</div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <div class="row">
+                                                <label for="phone" class="col-4">Phone</label>
+                                                <div class="col-8">+20 1119240526</div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <div class="row">
+                                                <label for="address" class="col-4">Address</label>
+                                                <div class="col-8">Cairo, Egypt</div>
+                                            </div>                                       
+                                        </div>
+    
+                                        <div class="form-group col-md-6">                                           
+                                            <div class="row">
+                                                <label for="email" class="col-4">Email</label>
+                                                <div class="col-8">maryam.mahmoud00@gmail.com</div>
+                                            </div>                                           
+                                       </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <div class="row">
+                                                <label for="dob" class="col-4">Date Of Birth</label>
+                                                <div class="col-8">27/04/2000</div>
+
+                                            </div>
+                                        </div>
+                                                            
+                                        
+                                        <div class="form-group col-md-6">
+                                            <div class="row">
+                                                <label for="gender" class="col-4">Gender</label>
+                                                <div class="col-8">Female</div>
+                                            </div>                                            -->
+                                        <!-- </div> -->
+            
+                                        </div>
+            
+            
+                                        <div class="col-lg-12 my-5">
+
+                                            <h3 class="pt-1 mb-2">Result Image</h3>
+                                            <p class="mb-4 hey-text">The fundus classification Result is <span class="class-result" id="grade">Moderate</span></p>
+                                            
+                                            <div class="row">   
+                                                <!-- <div class="col-md-6 px-3  d-flex justify-content-center result">
+                                                    <img src="imgs/result.png" alt="" class="w-65">                                                 
+                                                </div>  --> 
+                                                <div class="col-md-6 result d-flex justify-content-center">
+                                                    <div class="image-set d-flex justify-content-center align-items-center">
+                                                        <a data-gallery="photoviewer" data-title="Analysis Result" data-group="a"
+                                                            href="imgs/result.png" class="w-65" id="plugin-result-img">
+                                                            <img id="orignal_img" src="imgs/result.png" alt="" class="w-100">
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                           
+                                                <div class="col-1"></div>
+                                             
+                                                <div class="col-md-5 d-flex align-items-center result">
+                                                    
+                                                    <div class="row">
+                                                        <h3 class="font-7 add-pro hey-text py-2 text-center">Toggle between specified Lesion:</h3>
+                                                        
+                                                        <div class="col-md-12 d-flex justify-content-center py-3">
+                                                            <a class="btn btn-add" id="" onclick="hemo()">Haemorrage</a>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex justify-content-center py-3">
+                                                            <a class="btn btn-add" id="" onclick="SE()">Soft Exudate</a>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex justify-content-center py-3">
+                                                            <a class="btn btn-add" id="" onclick="EX()">Hard Exudate</a>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex justify-content-center py-3">
+                                                            <a class="btn btn-add" id="" onclick="micro()">Microaneurysm</a>
+                                                        </div>                                                    
+                                                    </div>
+                                                </div> 
+                                            </div>
+
+
+                                        </div>
+            
+
+                                        <div class="row">
+                                            <div class="form-group mb-3 d-flex justify-content-end">
+                                                <div class="">
+                                                    <!-- <button type="submit" class="btn btn-add">Submit</button> -->
+                                                    <button type="submit" class="btn btn-add btn-black">Cancel </button>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+            
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="container mx-auto">
+          <div class="row py-5 d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="d-flex flex-column align-items-start pb-5">
+                    <a href="/en" class=" mb-3">
+                      <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+                    </a>
+                    <p>
+                        Retino is an online program for assessing the severity of 
+                        diabetic retinopathy.  
+                        Powered by advanced artificial intelligence it provides the diagnosis automatically.
+                         It is the program that saves time and ease the Diabetic Retinopathy detection.
+                        <br><br>
+                        Follow us:
+                    </p>
+                    <div class="d-flex mt-3">
+                        <a href="https://www.facebook.com/cephio/" class="pe-2">            
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCS2JvhdL67fgfj6zcHG8biQ">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="col-md-6 d-flex justify-content-start justify-content-md-center">
+              <div class="d-flex justify-content-center me-5">
+                <div>
+                    <h5 class="footer-col-header pb-4">Support</h5>
+                    <p><a href="/en/privacy/" class="footer-small-description support-link">Privacy Policy</a></p>
+                    <p><a href="/en/terms/" class="footer-small-description support-link">Terms &amp; conditions</a></p>
+                    <p id="changePreferences" class="footer-small-description support-link">Cookie preferences</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center ">
+                <div>
+                    <h5 class="footer-col-header pb-4">Contact</h5>
+                    <address class="footer-small-description" property="email">
+                        <a class="footer-small-description footer-mail" href="mailto:support@Retino.com">support@Retino.com</a>
+                    </address>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      type="text/javascript"></script>
+    <script src="js/photoviewer.js"></script>
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="js/result.js"></script>
+    <script>
+        // initialize manually with a list of links
+        $('[data-gallery=photoviewer]').click(function (e) {
+    
+          e.preventDefault();
+    
+          var items = [],
+            options = {
+              index: $(this).index(),
+              modalWidth: 500,
+              modalHeight: 500,
+            };
+
+    
+          $('[data-gallery=photoviewer]').each(function () {
+            items.push({
+              src: $(this).attr('href'),
+              title: $(this).attr('data-title')
+            });
+          });
+    
+          new PhotoViewer(items, options);
+    
+        });
+      </script>
+</body>
+</html>

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Miniature Earth | Hologram Demo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/earth.css">
+
+
+
+<script>
+
+if ( location.protocol == 'file:' ) {
+	alert( 'This demo does not work with the file protocol due to browser security restrictions.' );
+}
+
+
+var myearth;
+var sprites = [];
+
+window.addEventListener( 'load', function() {
+
+	myearth = new Earth( 'myearth', {
+	
+		location : { lat: 20, lng : 20 },
+	
+		light: 'none',
+
+		mapImage: 'imgs/download.svg',
+		transparent: true,
+		
+		autoRotate : true,
+		autoRotateSpeed: 1.2,
+		autoRotateDelay: 100,
+		autoRotateStart: 2000,			
+		
+	} );
+	
+	
+	myearth.addEventListener( "ready", function() {
+
+		this.startAutoRotate();
+
+		// connections
+		
+		var line = {
+			color : '#009CFF',
+			opacity: 0.35,
+			hairline: true,
+			offset: -0.5
+		};
+		
+		for ( var i in connections ) {			
+			line.locations = [ { lat: connections[i][0], lng: connections[i][1] }, { lat: connections[i][2], lng: connections[i][3] } ];
+			this.addLine( line );
+		}
+		
+		
+		
+		// add 8 shine sprites
+		
+		for ( var i=0; i < 8; i++ ) {
+			sprites[i] = this.addSprite( {
+				image: 'imgs/hologram-shine.svg',
+				scale: 0.01,
+				offset: -0.5,
+				opacity: 0.5
+			} );
+			pulse( i );
+		}
+		
+		
+	} );
+	
+	
+} );
+
+
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+function pulse( index ) {
+	var random_location = connections[ getRandomInt(0, connections.length-1) ];
+	sprites[index].location = { lat: random_location[0] , lng: random_location[1] };
+	
+	sprites[index].animate( 'scale', 0.5, { duration: 320, complete : function(){
+		this.animate( 'scale', 0.01, { duration: 320, complete : function(){
+			setTimeout( function(){ pulse( index ); }, getRandomInt(100, 400) );
+		} });
+	} });
+}
+
+
+
+// locations conntected by lines and places where hologram shines appear
+
+var connections = [
+	[59.651901245117,17.918600082397,	41.8002778,12.2388889],
+	[59.651901245117,17.918600082397,	51.4706,-0.461941],
+	
+	[13.681099891662598,100.74700164794922,	-6.1255698204,106.65599823],
+	[13.681099891662598,100.74700164794922,	28.566499710083008,77.10310363769531],
+	
+	[30.12190055847168,31.40559959411621, -1.31923997402,36.9277992249],
+	[30.12190055847168,31.40559959411621, 25.2527999878,55.3643989563],
+	[30.12190055847168,31.40559959411621, 41.8002778,12.2388889],
+
+	[28.566499710083008,77.10310363769531,	7.180759906768799,79.88410186767578],
+	[28.566499710083008,77.10310363769531,	40.080101013183594,116.58499908447266],
+	[28.566499710083008,77.10310363769531,	25.2527999878,55.3643989563],
+
+	[-33.9648017883,18.6016998291, -1.31923997402,36.9277992249],
+	
+	[-1.31923997402,36.9277992249, 25.2527999878,55.3643989563],
+	
+	[41.8002778,12.2388889, 51.4706,-0.461941],
+	[41.8002778,12.2388889, 40.471926,-3.56264],
+
+	[19.4363,-99.072098,	25.79319953918457,-80.29060363769531],
+	[19.4363,-99.072098,	33.94250107,-118.4079971],
+	[19.4363,-99.072098,	-12.0219,-77.114304],
+	
+	[-12.0219,-77.114304,	-33.393001556396484,-70.78579711914062],
+	[-12.0219,-77.114304, -34.8222,-58.5358],
+	[-12.0219,-77.114304, -22.910499572799996,-43.1631011963],
+	
+	[-34.8222,-58.5358, -33.393001556396484,-70.78579711914062],
+	[-34.8222,-58.5358, -22.910499572799996,-43.1631011963],
+	
+	[22.3089008331,113.915000916, 13.681099891662598,100.74700164794922],
+	[22.3089008331,113.915000916, 40.080101013183594,116.58499908447266],
+	[22.3089008331,113.915000916, 31.143400192260742,121.80500030517578],
+	
+	[35.552299,139.779999, 40.080101013183594,116.58499908447266],
+	[35.552299,139.779999, 31.143400192260742,121.80500030517578],
+	
+	[33.94250107,-118.4079971,	40.63980103,-73.77890015],
+	[33.94250107,-118.4079971,	25.79319953918457,-80.29060363769531],
+	[33.94250107,-118.4079971,	49.193901062,-123.183998108],
+	
+	[40.63980103,-73.77890015, 25.79319953918457,-80.29060363769531],
+	[40.63980103,-73.77890015, 51.4706,-0.461941],
+	
+	[51.4706,-0.461941, 40.471926,-3.56264],
+	
+	[40.080101013183594,116.58499908447266,	31.143400192260742,121.80500030517578],
+	
+	[-33.94609832763672,151.177001953125,	-41.3272018433,174.804992676],
+	[-33.94609832763672,151.177001953125,	-6.1255698204,106.65599823],
+	
+	[55.5914993286,37.2615013123, 59.651901245117,17.918600082397],
+	[55.5914993286,37.2615013123, 41.8002778,12.2388889],
+	[55.5914993286,37.2615013123, 40.080101013183594,116.58499908447266],
+	[55.5914993286,37.2615013123, 25.2527999878,55.3643989563],
+];
+
+
+</script>
+
+</head>
+
+<body>
+
+
+  <div class="navbar-box text-dark">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <!-- <img src="Img/ceph_con.png" class="icon" /> -->
+          <!-- <a class="navbar-brand me-4" href="index.html"> -->
+            
+            <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+            
+          
+        
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+              <i class="fas fa-bars"></i>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 header-list">
+              <li class="nav-item">
+                <a class="nav-link" href="info.html">Fundus Image Analysis</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="earth.html">Technology</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="">Interactive Guide</a>
+              </li>
+    
+              <li class="nav-item">
+                <a class="nav-link" href="repo.html">Repository</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="help.html">Help</a>
+              </li>
+    
+            </ul>
+            <ul class="navbar-nav d-flex ms-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Sign Up</a>
+              </li>
+            </ul>
+    
+          </div>
+    
+          
+    
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+        <div class="row">
+                <div class="col-md-6 d-flex justify-content-end align-items-center" data-aos="zoom-in-right"
+                data-aos-duration="3000">
+                   <div>
+                    <h2 class=" e-title mb-4 fw-bold">Diabetic Retinopathy blinds over <span class="DR">60,000 people</span> each year. <br>Let's fix that.</h2>
+                    <!-- <h1 class="px-5">Online Diabetic Retinopathy Screening</h1> -->
+                    
+                    <div class="mt-5">
+                        <button class="glow-on-hover" type="button">Start Now</button>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="col-md-6" data-aos="zoom-in-left"
+                data-aos-duration="3000">
+                    <div id="myearth">
+                        <div id="glow"></div>
+                    </div>
+                </div>
+        </div>
+  </div>
+
+  <div class="how-works p-5">
+    <div class="container m-auto">
+      <h3 class="text-center heading text-light py-5">About <span class="text-light DR">Retino-AI</span> Technology</h3>
+        <div class="row py-4" >
+          <div class="col-md-4 col-sm-12" data-aos="fade-right" data-aos-duration="2000">
+            <div class="serviceBox">
+                <div class="service-icon">
+                    <span><i class="fa-solid fa-brain"></i></span>
+                </div>
+                <h3 class="title">Expert Knowledge-Based Algorithms</h3>
+                <p class="description">Our algorithms use data from qualified ophthalmologists to map images to diagnoses.</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12" data-aos="fade-down" data-aos-duration="2000">
+            <div class="serviceBox gray">
+                <div class="service-icon">
+                    <span><i class="fa-solid fa-gears"></i></span>
+                </div>
+                <h3 class="title">Deep Learning <br>Models</h3>
+                <p class="description">Our models were trained on images from several populations with varying degrees of diabetic retinopathy.</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12" data-aos="fade-left" data-aos-duration="2000">
+          <div class="serviceBox gray">
+              <div class="service-icon">
+                  <span><i class="fa-solid fa-chart-line"></i></span>
+              </div>
+              <h3 class="title">Enhancing <br>Patient Outcomes</h3>
+              <p class="description">Our ultimate goal is to enhance patients' lives by detecting diabetic retinopathy as early as feasible.</p>
+          </div>
+      </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="algo p-5">
+    <div class="container">
+      <h3 class="text-center heading text-light py-5">How <span class="heading DR">The Algorithm</span> works</h3>
+
+
+      <div class="grading row p-5 d-flex justify-content-center align-items-center">
+        <div class="col-md-4 algo-info col-sm-12" data-aos="zoom-in-right" data-aos-duration="3000">
+          <h3 class="position-relative algo-heading algo-grading">Grading</h3>
+          <p>First, models are trained using graded images; graded by American Board of Ophthalmology-Certified Retina Specialists
+          </p>
+        </div>
+     
+        <div class="col-md-1 col-sm-1"></div>
+
+        <div class="col-md-7 col-sm-12" data-aos="zoom-in-left" data-aos-duration="3000">
+          <div class="light-box py-4">
+            <div class="row px-5 py-2">
+              <div class="col-2 eye">
+                <img src="imgs/1.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/2.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/3.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/4.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/5.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/6.png" alt="" class="w-100" >
+              </div>
+            </div>
+            <div class="row px-5 py-2">
+              <div class="col-2 eye">
+                <img src="imgs/7.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/8.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/9.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/10.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/11.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/12.png" alt="" class="w-100" >
+              </div>
+            </div>
+            <div class="row px-5 py-2">
+              <div class="col-2 eye">
+                <img src="imgs/1.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/2.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/3.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/4.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/5.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/6.png" alt="" class="w-100" >
+              </div>
+            </div>
+            <div class="row px-5 py-2">
+              <div class="col-2 eye">
+                <img src="imgs/7.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/8.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/9.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/10.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/11.png" alt="" class="w-100" >
+              </div>
+              <div class="col-2 eye">
+                <img src="imgs/12.png" alt="" class="w-100" >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="grading row p-5 d-flex justify-content-center align-items-center">
+        <div class="col-md-4 algo-info col-sm-12" data-aos="fade-up"
+        data-aos-duration="3000">
+          <h3 class="position-relative algo-heading algo-class">Classification</h3>
+          <p>The Retino-AI algorithm is able to identify which eyes showed signs of disease, without any human help
+          </p>
+        </div>
+     
+        <div class="col-md-1 col-sm-1"></div>
+
+        <div class="col-md-7 col-sm-12 " data-aos="fade-left"
+        data-aos-duration="3000">
+          <div class="light-box py-4 position-relative" >
+
+            <div id="overlay"></div>
+            <div id="colored-overlay">
+              <div class="img-box">
+                <img src="imgs/result.png" alt="" class="w-100">
+                
+              </div>
+              <div class="img-no-content mt-5"></div>
+              <div class="img-no-content img-no-content-2 mt-3"></div>
+              
+            </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/1.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/2.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/3.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/4.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/5.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/6.png" alt="" class="w-100" >
+                </div>
+              </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/7.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/8.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/9.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/10.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/11.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/12.png" alt="" class="w-100" >
+                </div>
+              </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/1.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/2.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/3.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/4.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/5.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/6.png" alt="" class="w-100" >
+                </div>
+              </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/7.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/8.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/9.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/10.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/11.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/12.png" alt="" class="w-100" >
+                </div>
+              </div>
+
+
+              <div class="hero__badge">
+                <!-- <i class="fa-regular fa-circle-check pe-3"></i> -->
+                <div class="badge-icon">
+                  <input checked="checked" type="checkbox">
+                  <div class="checkmark"></div>
+                </div>
+                <div class="hero__badge-content">
+                  <span> No disease detected in</span> 
+                  <br>
+                  <span class="DR heading this_image">This Image</span>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="grading row p-5 d-flex justify-content-center align-items-center">
+        <div class="col-md-4 algo-info col-sm-12" data-aos="fade-down"
+        data-aos-duration="3000">
+          <h3 class="position-relative algo-heading algo-segment">Segmentation</h3>
+          <p>The Retino-AI algorithm is able to identify which eyes showed signs of disease, without any human help
+          </p>
+        </div>
+     
+        <div class="col-md-1 col-sm-1"></div>
+
+        <div class="col-md-7 col-sm-12 " data-aos="fade-left"
+        data-aos-duration="3000">
+          <div class="light-box py-4 position-relative" >
+
+            <div id="overlay"></div>
+            <div id="colored-overlay" class="colored-overlay-2">
+              <div class="img-box">
+                <img src="imgs/seg.png" alt="" class="w-100">
+                
+              </div>
+              <div class="img-no-content mt-5"></div>
+              <div class="img-no-content img-no-content-2 mt-3"></div>
+              
+            </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/1.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/2.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/3.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/4.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/5.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/6.png" alt="" class="w-100" >
+                </div>
+              </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/7.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/8.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/9.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/10.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/11.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/12.png" alt="" class="w-100" >
+                </div>
+              </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/1.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/2.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/3.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/4.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/5.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/6.png" alt="" class="w-100" >
+                </div>
+              </div>
+              <div class="row px-5 py-2">
+                <div class="col-2 eye">
+                  <img src="imgs/7.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/8.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/9.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/10.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/11.png" alt="" class="w-100" >
+                </div>
+                <div class="col-2 eye">
+                  <img src="imgs/12.png" alt="" class="w-100" >
+                </div>
+              </div>
+
+
+              <div class="hero__badge">
+                <div class="hero__badge-content">
+                  <span> All the features are detected:</span> 
+                  <br>
+                  <br>
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                    <div class="col-5">
+                      <p> Microaneurysms</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                    <div class="col-5">
+                      <p> Haemorrhages</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                    <div class="col-7">
+                      <p> Hard Exudates</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                    <div class="col-7">
+                      <p> Soft Exudates</p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="footer">
+    <div class="container mx-auto">
+      <div class="row py-5 d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="d-flex flex-column align-items-start pb-5">
+                <a href="/en" class="img-footer mb-3">
+                  <!-- <h3 class="d-inline-block">Retino-AI</h3> -->
+                  <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+                </a>
+                <p>
+                    Retino is an online program for assessing the severity of 
+                    diabetic retinopathy.  
+                    Powered by advanced artificial intelligence it provides the diagnosis automatically.
+                     It is the program that saves time and ease the Diabetic Retinopathy detection.
+                    <br><br>
+                    Follow us:
+                </p>
+                <div class="d-flex mt-3">
+                    <a href="https://www.facebook.com/cephio/" class="pe-2">            
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCS2JvhdL67fgfj6zcHG8biQ">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+    
+        </div>
+        <div class="col-md-6 d-flex justify-content-start justify-content-md-center">
+          <div class="d-flex justify-content-center me-5">
+            <div>
+                <h5 class="footer-col-header pb-4">Support</h5>
+                <p><a href="/en/privacy/" class="footer-small-description support-link">Privacy Policy</a></p>
+                <p><a href="/en/terms/" class="footer-small-description support-link">Terms &amp; conditions</a></p>
+                <p id="changePreferences" class="footer-small-description support-link">Cookie preferences</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center ">
+            <div>
+                <h5 class="footer-col-header pb-4">Contact</h5>
+                <address class="footer-small-description" property="email">
+                    <a class="footer-small-description footer-mail" href="mailto:support@Retino.com">support@Retino.com</a>
+                </address>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+   </div>
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+#back-link {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #0d130e;
+	padding: 0.5em;
+	font-size: 26px;
+	z-index: 10000;
+	border-right: 1px RGBA(255,255,255,0.5) solid;
+	border-bottom: 1px RGBA(255,255,255,0.5) solid;
+}
+#back-link img {
+	display: block;
+	width: 4em;
+	height: auto;
+}
+
+@media (max-width: 1199px) {
+	#back-link {
+		font-size: 20px;
+	}
+}
+@media (max-width: 511px) {
+	#back-link {
+		font-size: 16px;
+	}
+}
+
+#legal-footer-wrap {
+	position: relative;
+	height: 0;
+	z-index: 10002;
+	font-family: Arial, sans-serif;
+}
+
+#legal-footer {
+	position: absolute;
+	bottom: 0.5em;
+	right: 0.5em;
+}
+
+#legal-footer a {
+	text-decoration: none;
+	color: inherit;
+	padding: 0 0.5em;
+	font-size: 10px;
+}
+
+</style>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/earth.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

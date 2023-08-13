@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Upload an image from your desktop and select a filter from the select:
+        </p>
+        <input type="file" id="imageLoader"/>
+        <label for="filter-changer">Select a filter to apply</label>
+        <select id="filter-changer">
+          <option value="none">None</option>
+          <option value="red">Red</option>
+          <option value="gaussian">Gaussian</option>
+          <option value="grayscale">Grayscale</option>
+          <option value="highpass">highpass</option>
+          <option value="invert">invert</option>
+          <option value="laplacian">laplacian</option>
+          <option value="prewittHorizontal">Prewitt Horizontal</option>
+          <option value="prewittVertical">Prewitt Vertical</option>
+          <option value="roberts">roberts</option>
+          <option value="saturation">saturation</option>
+          <option value="sepia">sepia</option>
+          <option value="sharpen">sharpen</option>
+          <option value="sobelHorizontal">sobel Horizontal</option>
+          <option value="sobelVertical">sobel Vertical</option>
+          <option value="thresholding">thresholding</option>
+        </select>
+        
+        <br>
+        
+        <img id="original-image" />
+        <canvas id="filtered-image" />
+
+        <script>
+            var imageLoader = document.getElementById('imageLoader');
+var originalImage = document.getElementById("original-image");
+var filteredImageCanvas = document.getElementById("filtered-image");
+var filterChanger = document.getElementById("filter-changer");
+var imageUploaded = false;
+
+// Handle image upload into img tag
+imageLoader.addEventListener('change', function(e){
+		var reader = new FileReader();
+    
+    reader.onload = function(event){
+        originalImage.onload = function(){
+             console.log("Image Succesfully Loaded");
+             imageUploaded = true;
+        };
+        originalImage.src = event.target.result;
+    };
+    
+    reader.readAsDataURL(e.target.files[0]);   
+}, false);
+
+filterChanger.addEventListener("change", function(e){
+	var filter = filterChanger.value;
+  	
+  if(imageUploaded && filter != "none"){
+  
+  	// Apply filter
+  	LenaJS.filterImage(filteredImageCanvas, LenaJS[filter], originalImage);
+  }
+}, false);
+
+        </script>
+</body>
+</html>

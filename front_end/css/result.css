@@ -1,0 +1,32 @@
+.add_docs::before{
+    left:75%;
+    top:5%;
+    width: 60%;
+    background: url(../imgs/3D_cartoon/docs.png) 0% 0% / 35% no-repeat;
+    background-repeat: no-repeat;
+}
+
+.form-group{ 
+    padding: 10px;
+}
+.result{
+    background-color: #000c1c;
+    padding: 15px;
+    border-radius: 20px;
+}
+.class-result{ 
+    padding: 4px 15px;
+    background-color: #eceaea;
+    border-radius: 10px;
+    color: #000c1c;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+.result .btn-add{
+
+    width: 50%;
+}
+.w-65{
+    width:75%;
+}

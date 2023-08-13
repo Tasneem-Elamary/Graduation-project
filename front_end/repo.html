@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Retino-AI</title>
+    
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Poppins:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/repo.css">
+    </head>
+<body>
+
+    <div class="navbar-box text-dark">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <!-- <img src="Img/ceph_con.png" class="icon" /> -->
+              <!-- <a class="navbar-brand me-4" href="index.html"> -->
+                
+                <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+                
+              
+            
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                  <i class="fas fa-bars"></i>
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 header-list">
+                  <li class="nav-item">
+                    <a class="nav-link" href="info.html">Fundus Image Analysis</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="earth.html">Technology</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Interactive Guide</a>
+                  </li>
+        
+                  <li class="nav-item">
+                    <a class="nav-link" href="repo.html">Repository</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="result.html"> Result</a>
+                  </li>
+        
+                </ul>
+                <ul class="navbar-nav d-flex ms-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Login</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Sign Up</a>
+                  </li>
+                </ul>
+        
+              </div>
+        
+              
+        
+              
+            </div>
+          </nav>
+        </div>
+      </div>
+
+
+     <div class="container mx-auto">
+        <div class="row m-auto hello-div mt-5 constant_div add_staff">
+
+            <div class="ms-5">
+                <div class=" pt-3 col-lg-7 start_new_analysis">
+                    <p class="font-7 add-pro hey-text">Hello Doctor<span class="ps-1" id="userName"></span><span>,</span></p>
+                    <p class="hey-text">Here is your Repository or ..</p>
+                    <button class="">Start New Analysis</button>
+                </div>
+            </div>
+          </div>
+    
+        
+        <div class=" row datatable-container ">
+            <!-- ======= Header tools ======= -->
+            <div class="header-tools ms-0">       
+              <div class="search ms-0">
+                <input type="search" class="search-input" placeholder="Search..." />
+              </div>
+            </div>
+          
+            <!-- ======= Table ======= -->
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th>Fundus Image</th>
+                  <th>Identifier</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+
+                  <th>Date</th>
+                  <th>Comment</th>
+                  <th>Update</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+          
+              <tbody id="tbody">
+                <!-- <tr>
+                  <td class="mx-auto"><img src="imgs/1.png" alt="" class="profile-pic"></td>
+                  <td>1245</td>
+                  <td>23</td>
+                  <td>Female</td>
+
+                  <td>15/5/2023</td>
+                  <td>Advanced</td>
+                  <td><i class="fa-solid fa-pen mr-2"></i></td>
+                  <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  
+                </tr>
+          
+                <tr>
+                    <td class="mx-auto"><img src="imgs/2.png" alt="" class="profile-pic"></td>
+                    <td>1245</td>
+                    <td>23</td>
+                    <td>Female</td>
+  
+                    <td>15/5/2023</td>
+                    <td>Advanced</td>
+                    <td><i class="fa-solid fa-pen mr-2"></i></td>
+                    <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  </tr>
+          
+                  <tr>
+                    <td class="mx-auto"><img src="imgs/3.png" alt="" class="profile-pic"></td>
+                    <td>1245</td>
+                    <td>23</td>
+                    <td>Female</td>
+  
+                    <td>15/5/2023</td>
+                    <td>Advanced</td>
+                    <td><i class="fa-solid fa-pen mr-2"></i></td>
+                    <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  </tr>
+          
+                  <tr>
+                    <td class="mx-auto"><img src="imgs/4.png" alt="" class="profile-pic"></td>
+                    <td>1245</td>
+                    <td>23</td>
+                    <td>Female</td>
+  
+                    <td>15/5/2023</td>
+                    <td>Advanced</td>
+                    <td><i class="fa-solid fa-pen mr-2"></i></td>
+                    <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  </tr>
+          
+                  <tr>
+                    <td class="mx-auto"><img src="imgs/5.png" alt="" class="profile-pic"></td>
+                    <td>1245</td>
+                    <td>23</td>
+                    <td>Female</td>
+  
+                    <td>15/5/2023</td>
+                    <td>Advanced</td>
+                    <td><i class="fa-solid fa-pen mr-2"></i></td>
+                    <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  </tr>
+
+                  <tr>
+                    <td class="mx-auto"><img src="imgs/6.png" alt="" class="profile-pic"></td>
+                    <td>1245</td>
+                    <td>23</td>
+                    <td>Female</td>
+  
+                    <td>15/5/2023</td>
+                    <td>Advanced</td>
+                    <td><i class="fa-solid fa-pen mr-2"></i></td>
+                    <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  </tr>
+
+                  <tr>
+                    <td class="mx-auto"><img src="imgs/7.png" alt="" class="profile-pic"></td>
+                    <td>1245</td>
+                    <td>23</td>
+                    <td>Female</td>
+  
+                    <td>15/5/2023</td>
+                    <td>Advanced</td>
+                    <td><i class="fa-solid fa-pen mr-2"></i></td>
+                    <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  </tr>
+
+                  <tr>
+                    <td class="mx-auto"><img src="imgs/8.png" alt="" class="profile-pic"></td>
+                    <td>1245</td>
+                    <td>23</td>
+                    <td>Female</td>
+  
+                    <td>15/5/2023</td>
+                    <td>Advanced</td>
+                    <td><i class="fa-solid fa-pen mr-2"></i></td>
+                    <td><i class="fa-solid fa-trash mr-2"></i></td>
+                  </tr> -->
+              </tbody>
+            </table>
+          
+            <!-- ======= Footer tools ======= -->
+            <div class="footer-tools">
+              <!-- <div class="list-items">
+                Show
+                <select name="n-entries" id="n-entries" class="n-entries">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                </select>
+                entries
+              </div> -->
+          
+              <div class="pages">
+                <ul>
+                  <li><span class="active">1</span></li>
+                  <li><button>2</button></li>
+                  <li><button>3</button></li>
+                  <li><button>4</button></li>
+                  <li><span>...</span></li>
+                  <li><button>9</button></li>
+                  <li><button>10</button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+     </div>
+
+
+     <div class="footer">
+        <div class="container mx-auto">
+          <div class="row py-5 d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="d-flex flex-column align-items-start pb-5">
+                    <a href="/en" class=" mb-3">
+                      <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+                    </a>
+                    <p>
+                        Retino is an online program for assessing the severity of 
+                        diabetic retinopathy.  
+                        Powered by advanced artificial intelligence it provides the diagnosis automatically.
+                         It is the program that saves time and ease the Diabetic Retinopathy detection.
+                        <br><br>
+                        Follow us:
+                    </p>
+                    <div class="d-flex mt-3">
+                        <a href="https://www.facebook.com/cephio/" class="pe-2">            
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCS2JvhdL67fgfj6zcHG8biQ">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="col-md-6 d-flex justify-content-start justify-content-md-center">
+              <div class="d-flex justify-content-center me-5">
+                <div>
+                    <h5 class="footer-col-header pb-4">Support</h5>
+                    <p><a href="/en/privacy/" class="footer-small-description support-link">Privacy Policy</a></p>
+                    <p><a href="/en/terms/" class="footer-small-description support-link">Terms &amp; conditions</a></p>
+                    <p id="changePreferences" class="footer-small-description support-link">Cookie preferences</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center ">
+                <div>
+                    <h5 class="footer-col-header pb-4">Contact</h5>
+                    <address class="footer-small-description" property="email">
+                        <a class="footer-small-description footer-mail" href="mailto:support@Retino.com">support@Retino.com</a>
+                    </address>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="js/table.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+        <style>
+            .fade {
+                margin: 50px;
+                padding: 50px;
+                background-color: lightgreen;
+                color: #fff;
+                opacity: 1;
+            }
+        </style>
+    </head>
+<body>
+    
+  <div class="">
+    <div class="fade">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, excepturi?</div>
+    <div class="fade">Fade In 02</div>
+    <div class="fade">Fade In 03</div>
+    <div class="fade">Fade In 04</div>
+    <div class="fade">Fade In 05</div>
+    <div class="fade">Fade In 06</div>
+    <div class="fade">Fade In 07</div>
+    <div class="fade">Fade In 08</div>
+    <div class="fade">Fade In 09</div>
+    <div class="fade">Fade In 10</div>
+  </div>
+  
+</body>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+
+
+<script>
+    var typed = new Typed("#typed", {
+   /*  stringsElement: '#typed-strings', */
+   strings: ['Retino.AI','Diagnosis is less than 3 seconds', 'No human grader needed'],
+    typeSpeed: 30,
+    backSpeed: 40,
+    backDelay: 500,
+    startDelay: 1000,
+    loop: true,
+  });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+<script>
+  $(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      if (objectBottom < windowBottom) { 
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { 
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  }).scroll(); 
+});
+</script>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+<script>
+  AOS.init();
+</script>
+</html>

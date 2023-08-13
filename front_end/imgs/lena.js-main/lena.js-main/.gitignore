@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+/demo/video
+/ux
+npm-debug.log
+/dist

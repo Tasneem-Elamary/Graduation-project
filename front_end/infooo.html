@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Retino-AI</title>
+    
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Poppins:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/repo.css">
+        <link rel="stylesheet" href="css/info.css">
+    </head>
+<body>
+
+    <div class="navbar-box text-dark">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <!-- <img src="Img/ceph_con.png" class="icon" /> -->
+              <!-- <a class="navbar-brand me-4" href="index.html"> -->
+                
+                <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+                
+              
+            
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                  <i class="fas fa-bars"></i>
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 header-list">
+                  <li class="nav-item">
+                    <a class="nav-link" href="info.html">Fundus Image Analysis</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="earth.html">Technology</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Interactive Guide</a>
+                  </li>
+        
+                  <li class="nav-item">
+                    <a class="nav-link" href="repo.html">Repository</a>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                  </li>
+        
+                </ul>
+                <ul class="navbar-nav d-flex ms-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Login</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Sign Up</a>
+                  </li>
+                </ul>
+        
+              </div>           
+            </div>
+          </nav>
+        </div>
+      </div>
+
+
+
+
+
+<div class="info">
+    <div class="container">
+        <div id="content">
+
+
+          <div class="row m-auto hello-div mt-5 constant_div add_doctor">
+
+            <div class="ms-5">
+                <div class=" pt-3 col-lg-7 start_new_analysis">
+                    <p class="font-7 add-pro hey-text">Hello Doctor<span class="ps-1" id="userName"></span><span>,</span></p>
+                    <p class="hey-text">Add a new patient</p>
+                    <!-- <button class="">Start New Analysis</button> -->
+                </div>
+            </div>
+          </div>
+		
+		
+			<div class="row mt-5 form-box-patient py-5">
+
+                
+        <div class="col-lg-12 main-section mb-4">
+          <div class=" p-lg-3 p-0 h-100">
+            <div class="card-body pb-0">
+              <div class="row ">
+                      <div class="col-lg-12 ">
+                          <h3 class="mb-5">Add data for analysis</h3>
+                      </div>
+                      
+                      <div class="row">
+
+                        <div class="col-lg-6">
+                          <label for="patient_identifier" class="mb-2">Patient identifier</label>
+                          
+                          <input type="text" class="form-control" id="patient_identifier" name="patient_ident[]"
+                              placeholder="" value="" required="">
+                      </div>
+
+                        <div class="col-lg-6 col_analysis_type">
+                          <label for="input_age" class="mb-2">Patient age</label>
+                          <input type="text" class="form-control" id="input_age" name="age[]" placeholder="" value=""
+                              required="">
+                      </div>
+
+                      <div class="col-lg-6 col_analysis_type">
+                        <label for="Email">Email</label>
+                        <input type="email" placeholder="" class="form-control" id="Email">
+                    </div>
+
+                    <div class="col-lg-6 col_analysis_type">
+                      <label for="phone">Phone</label>
+                      <input type="text" placeholder="" class="form-control" id="phone">
+                  </div>
+                        
+                        <div class="col-lg-6 gender">
+                          <div class="form-group m-0">
+                              <label for="gender" class="mb-1">Patient sex</label>
+                              <div class="custom-control custom-radio gender_selection">
+                                  <input id="female" name="gender" value="Female" type="radio" class="custom-control-input form-check-input"
+                                      data-nice="Female" autocomplete="off" required="">
+                                  <label class="custom-control-label ms-2" for="female">Female</label>
+
+                                  <input id="male" name="gender" value="Male" type="radio" class="custom-control-input form-check-input ms-3"
+                                      data-nice="Male" autocomplete="off" required="">
+                                  <label class="custom-control-label ms-2" for="male">Male</label>
+                              </div>
+                             <!--  <div class="custom-control custom-radio gender_selection">
+                                  <input id="male" name="gender" value="Male" type="radio" class="custom-control-input form-check-input"
+                                      data-nice="Male" autocomplete="off" required="">
+                                  <label class="custom-control-label" for="male">Male</label>
+
+                              </div> -->
+                          </div>
+                      </div>
+
+                     
+
+                     
+                      </div>
+
+
+                      <div class="col-lg-12 mt-3">
+                        <div class="form-group ">
+                            <label for="comment" class="mb-1">Comments</label>
+                
+                            <textarea name="comment[]" class="form-control" id="comment" rows="4"></textarea>
+                        </div>
+                    </div>
+              </div>
+              
+            </div>
+         </div>
+     </div>
+
+
+                <div class="col-lg-8 main-section mb-4">
+                    <form action="/examples/actions/confirmation.php" method="post" class=" p-2 part-upload">
+    
+                        <h3 class="pt-1 mb-2">Upload image</h3>
+                        <p class="mb-4">Click to upload a fundus image.</p>
+                             <div id="yourBtn" onclick="getFile()" class="text-white p-2 ">
+                                <div class="text-center">
+                                 <div style='height: 0px;width: 0px; overflow:hidden;' >
+                                     <input id="imageinput" type="file" value="upload"  />
+                                 </div>
+                                 <div class="d-flex justify-content-center align-items-center position-relative">
+                                     <div id="alt_img_to_drag"></div>
+                                     <!-- <img src="Img/favicon-picavi-1.png" class="" id="logo-img"> -->
+                                     <i class="fa-solid fa-upload fa-3x position-absolute" id="logo-img"></i>
+                                     <br>
+                                 </div>
+                                 <canvas id="canvas" class= "w-50 m-auto" style="cursor:crosshair"></canvas>
+                                </div>
+                             </div>             
+                         <p>
+    
+                         <div class=" mt-5">
+                           <!--  <div class="col-lg-6 mx-auto">
+                                <a class="btn" id="delete" onclick="removeCanvas()">Remove fundus image</a>
+                            </div> -->
+
+                            <div class="col-md-5">
+                              <div class="">
+                                  <a class="btn btn-add" id="delete" onclick="removeCanvas()">Remove Image</a>
+                              </div>
+                          </div>
+                         </div>         
+                                  
+                         </p>        
+                     </form>
+                </div>
+
+                <div class="card-footer m-0 bg-transparent border-0">
+                  <div class="row">
+                      <div class="col-lg-11 my-1 d-flex justify-content-end">
+                          <!-- <button class="btn w-100 send_to_tracking d-inline-block" id="btn_send_to_tracking">Send to analysis</button> -->
+                          <div class="">
+                            <button type="submit" class="btn btn-add" id="btn_send_to_tracking" >Submit</button>
+                            <button type="" class="btn btn-add btn-black">Cancel </button>
+                          </div>
+              
+                          
+                      </div>
+                  </div>
+              </div>
+    
+                <!-- <div class="col-lg-1"></div> -->
+    
+                
+             </div>
+		</div>
+    </div>
+</div>
+
+
+
+<div class="footer">
+  <div class=" container mx-auto py-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6">
+          <div class="d-flex flex-column align-items-start pb-5">
+              <a href="/en" class=" mb-3">
+                <img src="imgs/retino_logo.png" alt="logo-retino" class="nav-img-logo">
+              </a>
+              <p>
+                  Retino is an online program for assessing the severity of 
+                  diabetic retinopathy.  
+                  Powered by advanced artificial intelligence it provides the diagnosis automatically.
+                   It is the program that saves time and ease the Diabetic Retinopathy detection.
+                  <br><br>
+                  Follow us:
+              </p>
+              <div class="d-flex mt-3">
+                  <a href="https://www.facebook.com/cephio/" class="pe-2">            
+                      <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="https://www.youtube.com/channel/UCS2JvhdL67fgfj6zcHG8biQ">
+                      <i class="fa-brands fa-youtube"></i>
+                  </a>
+              </div>
+          </div>
+  
+      </div>
+      <div class="col-md-6 d-flex justify-content-start justify-content-md-center">
+        <div class="d-flex justify-content-center me-5">
+          <div>
+              <h5 class="footer-col-header pb-4">Support</h5>
+              <p><a href="/en/privacy/" class="footer-small-description support-link">Privacy Policy</a></p>
+              <p><a href="/en/terms/" class="footer-small-description support-link">Terms &amp; conditions</a></p>
+              <p id="changePreferences" class="footer-small-description support-link">Cookie preferences</p>
+          </div>
+      </div>
+      <div class="d-flex justify-content-center ">
+          <div>
+              <h5 class="footer-col-header pb-4">Contact</h5>
+              <address class="footer-small-description" property="email">
+                  <a class="footer-small-description footer-mail" href="mailto:support@Retino.com">support@Retino.com</a>
+              </address>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+     type="text/javascript"></script>
+
+       
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+       
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/info.js"></script>
+</body>
+</html>

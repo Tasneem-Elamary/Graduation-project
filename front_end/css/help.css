@@ -1,0 +1,164 @@
+* {
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+body{
+    background:#000;
+    color: #ffffff;
+
+
+}
+.container-help{
+    width: 87% !important;
+}
+.card-body{
+    background-color: aquamarine;
+}
+
+/* ------------------------------------- asked questions --------------------------------------------------*/
+
+.h-card{
+    height: auto;
+    /* background-color: rgb(255, 127, 127); */
+   /*  padding: 10px;
+    margin: 20px;
+ */
+}
+.h-card-contact{ 
+    height: 600px !important;
+    background-color: blue;
+}
+
+
+
+
+/* nav */
+
+/* :root{
+    --gray-color: #F7F7F7;
+    --green-theme-color: #00717F;
+}
+
+.icon{
+    width: 6%;
+    border-radius: 50%;
+    padding-right: 10px;
+}
+.navbar-box{
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    background-color: #000000;
+}
+.navbar-box a{
+    color: #ffffff !important;
+}
+.navbar-box a:hover{
+    color: var(--green-theme-color) !important;
+}
+.navbar-box i{
+    font-size: 30px !important;
+    color: var(--green-theme-color) !important;
+} */
+
+/* --------------------- first raw:  ---------------- */
+
+.heading{ 
+    font-size: 1.7rem;
+    color: #ffffff;
+}
+.help-style{
+    padding: 20px;
+    background-color: #001129;
+    border-radius: 20px;
+    border: #001129 solid 1px;
+
+
+}
+/* button */
+
+ .tut button {
+    width: 10em;
+    position: relative;
+    height: 3.5em;
+    border: 3px ridge #068a9c;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .tut button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #001129;
+    transition: 0.5s;
+    transform-origin: center;
+  }
+  
+  .tut button::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #001129;
+    transition: 0.5s;
+  }
+  
+  .tut button:hover::before, button:hover::after {
+    transform: scale(0)
+  }
+  
+  .tut button:hover {
+    box-shadow: inset 0px 0px 25px #068a9c;
+  }
+
+  /* -------------- send btn ------------*/
+
+  .btn-add{
+    width: 100%;
+  }
+
+  /* ---------------- colla[se ------------------- */
+
+  .accordion-item:first-of-type .accordion-button, .accordion-button:not(.collapsed) {
+   background-color: #000C1C;
+   border-top-left-radius: #000C1C;
+   border-top-right-radius: #000C1C;
+   color: #ffffff;
+}
+
+.accordion-item, .accordion-button {
+    color: #fff;
+    background-color: #000C1C;
+    border: var(--bs-accordion-border-width) solid #000C1C;
+    box-shadow: none !important;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: #005e6d;
+    outline: 0;
+    box-shadow: none;
+}
+
+
+/* .accordion-button:not(.collapsed) {
+    color: var(--bs-accordion-active-color);
+    background-color: var(--bs-accordion-active-bg);
+    box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+} */
+
+.footer{ 
+    background: #000;
+}
+
